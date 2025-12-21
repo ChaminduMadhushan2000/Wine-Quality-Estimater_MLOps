@@ -1,0 +1,28 @@
+name: MLOps Project CI/CD
+
+on: 
+    push:
+        branches:
+             - main
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout code
+              uses: actions/checkout@v2
+            - name: setup python
+              uses: actions/setup-python@v2
+              with:
+                  python-version: '3.9'
+            - name: install dependencies
+              run: |
+                  pip install pandas scikit-learn mlflow numpy
+            - name: run tests
+              run: |
+                  python -m unittest discover -s tests
+            
+            - name: train model
+              run: python train.py
+
+            - name: Build docker image
+              run: docker build -file Dockerfile -t wine-model:latest .
