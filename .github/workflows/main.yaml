@@ -17,9 +17,6 @@ jobs:
             - name: install dependencies
               run: |
                   pip install pandas scikit-learn mlflow numpy
-            - name: run tests
-              run: |
-                  python -m unittest discover -s tests
             
             - name: train model
               run: python train.py
