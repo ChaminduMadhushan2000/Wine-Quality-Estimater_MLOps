@@ -16,7 +16,7 @@ jobs:
                   python-version: '3.9'
             - name: install dependencies
               run: |
-                  pip install pandas scikit-learn mlflow numpy
+                  pip install pandas scikit-learn mlflow numpy joblib fastapi uvicorn
             
             - name: train model
               run: python train.py
