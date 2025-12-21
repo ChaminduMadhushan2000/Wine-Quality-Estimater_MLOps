@@ -22,4 +22,4 @@ jobs:
               run: python train.py
 
             - name: Build docker image
-              run: docker build -file Dockerfile -t wine-model:latest .
+              run: docker build -f Dockerfile -t wine-model:latest .
