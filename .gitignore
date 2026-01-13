@@ -1,2 +1,3 @@
 mlruns/
 /wine-quality.csv
+/model.joblib
