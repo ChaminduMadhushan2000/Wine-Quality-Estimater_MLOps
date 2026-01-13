@@ -32,10 +32,15 @@ if __name__ == "__main__":
     )
     try:
         data = pd.read_csv(csv_url, sep=";")
+    
+        os.makedirs("data", exist_ok=True)
+        data_path = "data/wine-quality.csv"
+        data.to_csv(data_path, index=False)
+
     except Exception as e:
         logger.exception(
-            "Unable to download training & test CSV, check your internet connection. Error: %s", e
-        )
+        "Unable to download training & test CSV, check your internet connection. Error: %s", e
+    )
 
     # 2. Split Data
     train, test = train_test_split(data)
